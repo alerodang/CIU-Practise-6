@@ -48,12 +48,12 @@ void  drawInfo(){
 void cleanScreen(){
   for(int i = 0; i<numberOfPixels; i++){
     if(!changesRecorder[i]){
-      if(captureHasChanged(i)) changesRecorder[i] = true;
+      if(captureHasChangedEnough(i)) changesRecorder[i] = true;
     } else copyPixel(i);
   }
 }
 
-boolean captureHasChanged(int i){
+boolean captureHasChangedEnough(int i){
   if (getCaptureChange(i) > 500) return true; 
   else return false;
 }
